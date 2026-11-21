@@ -1,0 +1,276 @@
+
+@font-face {
+    font-family: 'fredella';
+    src: url(../portfolio/portf/Fredella.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'gatchina';
+    src: url(../portfolio/portf/Gatchina.ttf) format('truetype');
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fbf9f6;
+    color: #443638;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eadfe0;
+    background-image:
+        linear-gradient(rgba(239, 189, 207, 0.6), rgba(244, 203, 218, 0.6)),
+        url("images/шапка.jpg");
+}
+
+.logo {
+    font-family: fredella, serif;
+    font-size: 27px;
+    color: #443638;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #c58f9e;
+}
+
+.admin-label,
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #b68d98;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+.welcome h1 {
+    font-family: gatchina, Georgia, serif;
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.welcome h1 em {
+    color: #51222f;;
+}
+
+.welcome p:last-child {
+    color: #927f82;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 55px 0 75px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid #eee3e4;
+    padding: 28px;
+    border-radius: 3px;
+}
+
+.stat span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #a78d92;
+}
+
+.stat strong {
+    display: block;
+    font-family: gatchina, Georgia, serif;
+    font-size: 38px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 5px;
+    background-image:
+        linear-gradient(rgba(239, 189, 207, 0.6), rgba(244, 203, 218, 0.6)),
+        url("images/шапка.jpg");
+    border-radius: 5px;
+}
+
+.section-heading h2 {
+    font-family: gatchina, Georgia, serif;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 8px 0;
+}
+
+button {
+    background: #c58f9e;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 3px;
+}
+
+.order {
+    background: white;
+    border: 1px solid #eee3e4;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.order-number {
+    font-family: gatchina, Georgia, serif;
+    font-size: 25px;
+}
+
+.order-info {
+    color: #907d81;
+    line-height: 1.8;
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+.order select {
+    padding: 10px;
+    border: 1px solid #e5d5d9;
+    background: #fbf9f6;
+    color: #443638;
+}
+
+.delete {
+    background: #eee3e4;
+    color: #805e68;
+    margin-left: 8px;
+}
+
+@media (max-width: 650px) {
+    .stats {
+        grid-template-columns: 1fr;
+        margin: 35px 0 50px;
+    }
+
+    .container {
+        padding: 40px 18px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+}
+
+
+.login-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background:
+        radial-gradient(ellipse at top, #f3e5e9, transparent 65%),
+        #fbf9f6;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #eee0e3;
+    padding: 55px 45px;
+    text-align: center;
+    box-shadow: 0 20px 70px rgba(130, 90, 105, 0.08);
+}
+
+.login-card .logo {
+    display: block;
+    margin-bottom: 45px;
+}
+
+.login-card h1 {
+    font-family: gatchina, Georgia, serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.login-card h1 em {
+    color: #bd8798;
+}
+
+.login-description {
+    color: #927f82;
+    margin-bottom: 35px;
+}
+
+.login-card label {
+    display: block;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #a78d92;
+    margin-bottom: 20px;
+}
+
+.login-card input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: 1px solid #eadfe0;
+    background: #fbf9f6;
+    outline: none;
+    color: #443638;
+}
+
+.login-card input:focus {
+    border-color: #c58f9e;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+#login-error {
+    color: #a34d65;
+    font-size: 13px;
+    min-height: 18px;
+}
+
+#logout {
+    margin-left: 15px;
+    padding: 9px 15px;
+    font-size: 10px;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 40px 25px;
+    }
+}
+
+[hidden] {
+    display: none !important;
+}

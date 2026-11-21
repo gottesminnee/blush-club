@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7dce7">
+<title>BLUSH CLUB - drink pretty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script defer src="script.js"></script>
+</head>
+    <body>
+    
+        <header class="header">
+            <a class="logo" href="#home">BLUSH<span>CLUB</span></a>
+            <nav id="nav">
+                <a href="#catalog">КАТАЛОГ</a>
+                <a href="#story">О НАС</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="actions">
+                <button id="search-toggle" aria-label="Поиск">⌕</button>
+                <button id="favorites-toggle" aria-label="Избранное">♡ <small id="fav-count">0</small></button>
+                <button class="bag" id="cart-open">BAG <b id="cart-count">0</b></button>
+                <button class="hamb" id="hamb">☰</button>
+            </div>
+        </header>
+
+        <main id="home">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">ur little obsession . ݁⋆ ۶ৎ ݁˖ . ݁</p>
+                <h1>DRINK<br><em>pretty.</em><br>FEEL GOOD.</h1>
+                <p class="hero-text">Крафтовые напитки для тех, кто выбирает вкус, эстетику и утонченность ˖ ᡣ𐭩 ⊹ ࣪  ౨ৎ˚₊</p><a class="btn dark" href="#catalog">НАЙТИ СВОЙ ВКУС ↗</a>
+                <p class="hero-note">✳ SMALL BATCH · BIG PERSONALITY</p>
+            </div>
+
+            <div class="hero-art">
+                <img src="images/IMG_5172.JPG">
+                <small>THE BLUSH EDITION — № 01</small>
+            </div>
+        </section>
+
+        <div class="ticker">CRAFTED WITH CARE . ݁⋆ ۶ৎ ݁˖ . ݁MADE TO BE SHARED . ݁⋆ ۶ৎ ݁˖ . ݁CRAFTED WITH CARE . ݁⋆ ۶ৎ ݁˖ . ݁MADE TO BE SHARED ♡</div>
+        <section class="section" id="catalog">
+            <div class="heading">
+                <div>
+                    <p class="eyebrow">THE GOOD STUFF</p>
+                    <h2>THE <em>DRINK</em> DEPARTMENT</h2>
+                </div>
+                <p>небольшие партии<br>большая любовь к деталям</p>
+            </div>
+
+        <div class="toolbar">
+            <div class="filters" id="filters">
+                <button class="active" data-cat="all">ВСЁ</button>
+                <button data-cat="nonalcoholic">БЕЗ АЛКОГОЛЯ</button>
+                <button data-cat="alcoholic">С АЛКОГОЛЕМ · 18+</button>
+            </div>
+            <label>СОРТИРОВКА 
+                <select id="sort">
+                    <option value="featured">Популярное</option>
+                    <option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option>
+                    <option value="name">По названию</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="search" id="search">
+            <input id="query" type="search" placeholder="Найти свой любимый вкус...">
+            <button id="clear-search">×</button>
+        </div>
+        <div class="grid" id="products"></div>
+        <p class="empty" id="empty" hidden>Пока ничего не нашли. Попробуй другой запрос ♡</p>
+        <div class="catalog-foot">
+            <span>MADE FOR YOUR MAIN CHARACTER MOMENT</span>
+            <span id="total">06 PRODUCTS</span>
+        </div>
+    </section>
+    <section class="story" id="story">
+        <div class="story-img">
+            <img src="images/IMG_5171.JPG">
+            <span>blush ur day . ݁⋆ ۶ৎ ݁˖ .</span>
+        </div>
+        <div class="story-copy">
+            <p class="eyebrow">A NOTE FROM THE CLUB</p>
+            <h2>NOT JUST<br>A <em>DRINK.</em><br>A WHOLE MOOD.</h2>
+            <p>Мы верим, что хороший напиток - это маленький повод устроить себе праздник, поэтому собираем интересные вкусы и выбираем выразительные ингредиенты</p>
+            <p class="pink-note">Небольшие партии · Любопытные сочетания · Эстетичные моменты</p>
+            <a href="#catalog">ПОПРОБОВАТЬ BLUSH CLUB ↗</a>
+        </div>
+    </section>
+    <section class="perks">
+        <article>
+            <b>✳</b>
+            <h3>SMALL BATCH</h3>
+            <p>Небольшие партии и внимание к каждой детали</p>
+        </article>
+        <article>
+            <b>♡</b>
+            <h3>GOOD INGREDIENTS</h3>
+            <p>Понятный состав и выразительные вкусовые сочетания</p>
+        </article>
+        <article>
+            <b>✧</b>
+            <h3>GOOD MOOD</h3>
+            <p>Напитки, которые делают день особенным</p>
+        </article>
+    </section>
+    <section class="newsletter">
+        <p class="eyebrow">LETTERS FROM THE CLUB</p>
+        <h2>A LITTLE LOVE<br>IN YOUR <em>INBOX.</em></h2>
+        <p>Новинки, сезонные вкусы и хорошие поводы для тоста</p>
+        <form id="newsletter">
+            <input type="email" required placeholder="ТВОЙ EMAIL" aria-label="Твой email">
+            <button>Я В ДЕЛЕ↗</button>
+        </form>
+    </section>
+
+
+    <section class="section faq" id="faq">
+        <div class="faq-heading">
+            <div>
+                <p class="eyebrow">THE LITTLE DETAILS</p>
+                <h2>GOOD TO <em>KNOW</em></h2>
+                <p class="faq-intro">
+                    Всё, что нужно знать о нас и наших напитках, в одном месте
+                </p>
+            </div>
+            <span class="faq-decoration">♡</span>
+        </div>
+
+        <div class="faq-list">
+
+            <details class="faq-item">
+                <summary>
+                    <span>Что такое BLUSH CLUB?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    BLUSH CLUB - концепт-магазин крафтовых напитков.
+                    Мы объединяем различные вкусы, нестандартную подачу и эстетику повседневных удовольствий
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>
+                    <span>Какие напитки есть в каталоге?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    В нашей коллекции представлены фруктовые, ягодные,
+                    игристые и другие необычные напитки. Есть варианты
+                    как с алкоголем, так и без него
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>
+                    <span>Как оформить заказ?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    Добавь понравившиеся позиции в корзину, проверь состав
+                    заказа и нажми «Оформить заказ». Затем заполни небольшую
+                    форму. Сейчас оформление работает в демонстрационном режиме.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>
+                    <span>Сколько стоит доставка?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    В концепции магазина доставка бесплатная при заказе
+                    от 3 500 ₽. Для заказов на меньшую сумму условия доставки
+                    должны определяться при оформлении.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>
+                    <span>Можно ли заказать напитки с алкоголем?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    В каталоге могут отображаться концептуальные позиции
+                    18+. Они представлены исключительно для демонстрации
+                    интерфейса
+                </div>
+            </details>
+
+        </div>
+
+    </section>
+    </main>
+        <footer>
+            <a class="logo" href="#home">BLUSH<span>CLUB</span><sup>®</sup></a>
+            <p>DRINK PRETTY. FEEL GOOD.</p>
+            <div>
+                <a href="#catalog">КАТАЛОГ</a>
+                <a href="#story">О НАС</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <small>© 2026 BLUSH CLUB · CONCEPT STORE</small>
+            <small>концепт-магазин крафтовых напитков</small>
+
+        </footer>
+        <div class="overlay" id="overlay"></div>
+        <aside class="drawer" id="drawer">
+            <div class="drawer-head">
+                <div>
+                    <p class="eyebrow">YOUR LITTLE HAUL</p>
+                    <h2>YOUR BAG <em> . ݁⋆ ۶ৎ ݁˖ . ݁</em></h2>
+                </div>
+                <button id="cart-close">×</button>
+            </div>
+
+            <div id="cart-items"></div>
+            <div id="cart-empty" class="cart-empty">
+                <b>♡</b>
+                <h3>Тут пока пусто</h3>
+                <p>Самое время найти что-то для души</p>
+                <button class="btn dark" id="continue">В КАТАЛОГ</button>
+            </div>
+
+            <div class="cart-footer" id="cart-footer">
+                <p>ИТОГО <strong id="subtotal">0 ₽</strong></p>
+                <small>Доставка рассчитывается при оформлении</small>
+                <button class="btn pink" id="checkout-open">ОФОРМИТЬ ЗАКАЗ ↗</button>
+            </div>
+        </aside>
+
+        <section class="modal" id="product-modal">
+            <button class="x" data-close>×</button>
+            <div id="product-detail"></div>
+        </section>
+        <section class="modal checkout" id="checkout-modal">
+            <button class="x" data-close>×</button>
+            <p class="eyebrow">ALMOST YOURS</p>
+            <h2>CHECK <em>OUT.</em></h2>
+            <p class="muted">Демо-оформление: данные никуда не отправляются, оплата не производится</p>
+            <form id="checkout-form">
+                <label>
+                    Имя
+                    <input name="name" required minlength="2" placeholder="Как к тебе обращаться?">
+                </label>
+                <label>
+                    Email
+                    <input name="email" type="email" required placeholder="name@example.com">
+                </label>
+                <label>
+                    Телефон
+                    <input name="phone" required pattern="[+0-9() -]{7,}" placeholder="+7 ...">
+                </label>
+                <label>
+                    Адрес доставки
+                    <textarea name="address" required minlength="8" rows="2" placeholder="Город, улица, дом"></textarea>
+                </label>
+                <button class="btn pink">ПОДТВЕРДИТЬ ЗАКАЗ ↗</button>
+            </form>
+        </section>
+        <div class="toast" id="toast" role="status"></div>
+        <div class="age-gate" id="age-gate">
+            <div>
+                <div class="age-logo">BLUSH<span>CLUB</span></div>
+                <p class="eyebrow">WELCOME TO THE CLUB</p>
+                <h2>A LITTLE<br><em>CHECK-IN.</em></h2>
+                <p>В каталоге есть концептуальные напитки 18+. Подтверди, что тебе исполнилось 18 лет, чтобы продолжить.</p>
+                <button class="btn dark" id="age-yes">МНЕ ЕСТЬ 18 ЛЕТ ↗</button>
+                <button class="age-no" id="age-no">Мне нет 18 лет</button>
+                <small>концепт-магазин крафтовых напитков</small>
+            </div>
+        </div>
+    </body>
+</html>
