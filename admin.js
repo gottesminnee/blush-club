@@ -13,14 +13,14 @@ document.querySelector("#login-form").addEventListener("submit", async e => {
     adminAuth = "Basic " + btoa(username + ":" + password);
 
     try {
-        const response = await fetch("http://100.105.194.51:8080/api/orders", {
+        const response = await fetch("http://localhost:8080/api/orders", {
             headers: {
                 Authorization: adminAuth
             }
         });
 
         if (!response.ok) {
-            throw new Error("Неверный логин или пароль");
+            throw new Error("неверный логин или пароль");
         }
 
         loginScreen.hidden = true;
@@ -31,7 +31,7 @@ document.querySelector("#login-form").addEventListener("submit", async e => {
     } catch (error) {
         adminAuth = "";
         document.querySelector("#login-error").textContent =
-            "Неверный логин или пароль ♡";
+            "неверный логин или пароль";
     }
 });
 
@@ -47,7 +47,7 @@ const ordersContainer = document.querySelector("#orders");
 
 async function loadOrders() {
     try {
-        const response = await fetch("http://100.105.194.51:8080/api/orders", {
+        const response = await fetch("http://localhost:8080/api/orders", {
             headers: {
             Authorization: adminAuth
         }
@@ -70,7 +70,7 @@ async function loadOrders() {
         ordersContainer.innerHTML = "";
 
         if (orders.length === 0) {
-            ordersContainer.innerHTML = "<p>Заказов пока нет ♡</p>";
+            ordersContainer.innerHTML = "<p>ззаказов пока нет </p>";
             return;
         }
 
@@ -97,10 +97,10 @@ async function loadOrders() {
                 </div>
 
                 <select class="status">
-                    <option value="NEW">Новый</option>
-                    <option value="PROCESSING">В обработке</option>
-                    <option value="SHIPPED">Отправлен</option>
-                    <option value="COMPLETED">Завершён</option>
+                    <option value="NEW">новый</option>
+                    <option value="PROCESSING">в обработке</option>
+                    <option value="SHIPPED">отправлен</option>
+                    <option value="COMPLETED">завершен</option>
                 </select>
 
                 <button class="delete">УДАЛИТЬ</button>
@@ -112,13 +112,14 @@ async function loadOrders() {
             select.addEventListener("change", async () => {
     try {
         const response = await fetch(
-            `http://100.105.194.51:8080/api/orders/${order.id}/status`,
+            `http://localhost:8080/api/orders/${order.id}/status`,
             {
                 method: "PATCH",
                 headers: {
                     Authorization: adminAuth,
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     status: select.value
                 })
@@ -126,7 +127,7 @@ async function loadOrders() {
         );
 
         if (!response.ok) {
-            throw new Error("Ошибка изменения статуса");
+            throw new Error("ошибка изменения статуса");
         }
 
         loadOrders();
@@ -134,7 +135,7 @@ async function loadOrders() {
     } 
     
     catch (error) {
-        alert("Не удалось изменить статус");
+        alert("не удалось изменить статус");
         console.error(error);
         select.value = order.status;
     }
@@ -147,7 +148,7 @@ async function loadOrders() {
 
         try {
             const response = await fetch(
-                `http://100.105.194.51:8080/api/orders/${order.id}`,
+                `http://localhost:8080/api/orders/${order.id}`,
             {
                 method: "DELETE",
                 headers: {
@@ -157,13 +158,13 @@ async function loadOrders() {
             );
 
             if (!response.ok) {
-                throw new Error("Ошибка удаления");
+                throw new Error("ошибка удаления");
             }
 
             loadOrders();
 
         } catch (error) {
-            alert("Не удалось удалить заказ");
+            alert("не получилось удалить заказ");
             console.error(error);
         }
     });
@@ -173,7 +174,7 @@ async function loadOrders() {
 
     } catch (error) {
         ordersContainer.innerHTML =
-            "<p>Не удалось загрузить заказы. Проверь, запущен ли backend.</p>";
+            "<p>не удалось загрузить заказы</p>";
         console.error(error);
     }
 }
