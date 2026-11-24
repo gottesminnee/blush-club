@@ -30,8 +30,8 @@ if (ageGate && ageYes && ageNo) {
   ageNo.addEventListener("click", () => {
     ageGate.innerHTML = `
       <div>
-        <h2>SEE YOU<br><em>SOON.</em></h2>
-        <p>Для просмотра концепт-магазина требуется подтверждение возраста 18+.</p>
+        <h2>SEE U<br><em>SOON</em></h2>
+        <p>для просмотра концепт-магазина требуется подтверждение возраста</p>
       </div>
     `;
   });
@@ -106,7 +106,7 @@ function render() {
         <span class="badge">${p.badge}</span>
 
         <button class="heart ${state.favs.includes(p.id) ? "on" : ""}"
-          data-fav="${p.id}" aria-label="Избранное">
+          data-fav="${p.id}" aria-label="избранное">
           ${state.favs.includes(p.id) ? "♥" : "♡"}
         </button>
 
@@ -146,7 +146,7 @@ function add(id) {
   const p = get(id);
 
   if (p.cat === "alcoholic") {
-    notify("Демо-позиция 18+: покупка недоступна.");
+    notify("демо-позиция: покупка недоступна");
     return;
   }
 
@@ -182,8 +182,8 @@ function favorite(id) {
 
   notify(
     state.favs.includes(id)
-      ? "Добавлено в избранное ♡"
-      : "Удалено из избранного"
+      ? "добавлено в избранное"
+      : "удалено из избранного"
   );
 }
 
@@ -300,14 +300,14 @@ function detail(id) {
         </div>
 
         <small>
-          ОБЪЁМ: ${p.vol}<br>
+          ОБЪЕМ: ${p.vol}<br>
           РЕЙТИНГ: ★ ${p.rating}<br>
           СОСТАВ: ${p.ingredients}
         </small>
 
         <button class="btn pink" data-add="${p.id}">
           ${p.cat === "alcoholic"
-            ? "ДЕМО-ПОЗИЦИЯ 18+"
+            ? "ДЕМО-ПОЗИЦИЯ"
             : "В КОРЗИНУ +"}
         </button>
       </div>
@@ -499,7 +499,7 @@ $$("nav a").forEach(a => {
 $("#newsletter").onsubmit = e => {
   e.preventDefault();
 
-  notify("Ты в списке рассылки ♡");
+  notify("ты в списке рассылки");
 
   e.target.reset();
 };
@@ -537,7 +537,7 @@ if (checkoutForm) {
         });
 
         if (!response.ok) {
-            throw new Error("Не удалось оформить заказ");
+            throw new Error("не удалось оформить заказ");
         }
 
         const order = await response.json();
@@ -551,11 +551,11 @@ if (checkoutForm) {
 
         form.reset();
 
-        notify("Заказ " + order.orderNumber + " сохранён♡");
+        notify("заказ " + order.orderNumber + " сохранен");
 
     } catch (error) {
         console.error(error);
-        notify("Ошибка оформления");
+        notify("ошибка оформления");
     }
   }
 };
@@ -568,10 +568,10 @@ $("#age-yes").onclick = () => {
 $("#age-no").onclick = () => {
   $("#age-gate").innerHTML = `
     <div>
-      <h2>SEE YOU<br><em>SOON.</em></h2>
+      <h2>SEE U<br><em>SOON</em></h2>
       <p>
-        Для просмотра концепт-магазина требуется
-        подтверждение возраста 18+.
+        для просмотра концепт-магазина требуется
+        подтверждение возраста
       </p>
     </div>
   `;
@@ -592,7 +592,7 @@ async function loadProducts() {
     const response = await fetch("http://localhost:8080/api/products");
 
     if (!response.ok) {
-      throw new Error("Ошибка загрузки товаров");
+      throw new Error("ошибка загрузки товаров");
     }
 
     const data = await response.json();
@@ -628,7 +628,7 @@ async function loadProducts() {
   } catch (error) {
     console.error("Ошибка:", error);
     $("#products").innerHTML =
-      "<p>Не удалось загрузить каталог</p>";
+      "<p>не удалось загрузить каталог</p>";
   }
 }
 
