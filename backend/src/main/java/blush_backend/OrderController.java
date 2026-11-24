@@ -37,7 +37,7 @@ public class OrderController {
 
             if (items == null || items.isEmpty()) {
                 throw new ResponseStatusException(
-                        HttpStatus.BAD_REQUEST, "Корзина пуста");
+                        HttpStatus.BAD_REQUEST, "корзина пуста");
             }
 
             List<Map<String, Object>> savedItems = new ArrayList<>();
@@ -52,17 +52,17 @@ public class OrderController {
 
                 if (quantity < 1) {
                     throw new ResponseStatusException(
-                            HttpStatus.BAD_REQUEST, "Некорректное количество");
+                            HttpStatus.BAD_REQUEST, "некорректное количество");
                 }
 
                 Product product = productRepository.findById(productId)
                         .orElseThrow(() -> new ResponseStatusException(
-                                HttpStatus.BAD_REQUEST, "Товар не найден"));
+                                HttpStatus.BAD_REQUEST, "товар не найден"));
 
                 if (!product.isAvailable()
                         || "alcoholic".equals(product.getCategory())) {
                     throw new ResponseStatusException(
-                            HttpStatus.BAD_REQUEST, "Этот товар недоступен");
+                            HttpStatus.BAD_REQUEST, "этот товар недоступен");
                 }
 
                 double itemTotal = product.getPrice() * quantity;
@@ -107,7 +107,7 @@ public class OrderController {
             throw e;
         } catch (Exception e) {
             throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Не удалось оформить заказ");
+                    HttpStatus.BAD_REQUEST, "не удалось оформить заказ");
         }
     }
 
@@ -122,7 +122,7 @@ public class OrderController {
         @RequestBody Map<String, String> data) {
 
             Order order = orderRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Заказ не найден"));
+                    .orElseThrow(() -> new RuntimeException("заказ не найден"));
 
             String status = data.get("status");
 
@@ -131,7 +131,7 @@ public class OrderController {
             );
 
             if (!allowedStatuses.contains(status)) {
-                throw new RuntimeException("Некорректный статус");
+                throw new RuntimeException("некорректный статус");
             }
 
             order.setStatus(status);
