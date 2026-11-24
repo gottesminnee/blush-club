@@ -24,10 +24,11 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/orders").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
-                .requestMatchers("/api/orders/**").authenticated()
-                .anyRequest().permitAll()
+                .requestMatchers(HttpMethod.GET,
+                    "/api/products", "/api/products/**").permitAll()
+                .requestMatchers(HttpMethod.POST,
+                    "/api/orders").permitAll()
+                .anyRequest().authenticated()
             )
             .httpBasic(basic -> {});
 

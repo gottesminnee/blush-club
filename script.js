@@ -3,6 +3,40 @@ let products = [];
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
+const ageGate = $("#age-gate");
+const ageYes = $("#age-yes");
+const ageNo = $("#age-no");
+
+if (ageGate && ageYes && ageNo) {
+
+  try {
+    if (localStorage.getItem("blushAgeConfirmed") === "true") {
+      ageGate.classList.add("hidden");
+    }
+  } catch (error) {
+    console.log("Age storage unavailable");
+  }
+
+  ageYes.addEventListener("click", () => {
+    try {
+      localStorage.setItem("blushAgeConfirmed", "true");
+    } catch (error) {
+      console.log("Age storage unavailable");
+    }
+
+    ageGate.classList.add("hidden");
+  });
+
+  ageNo.addEventListener("click", () => {
+    ageGate.innerHTML = `
+      <div>
+        <h2>SEE YOU<br><em>SOON.</em></h2>
+        <p>Для просмотра концепт-магазина требуется подтверждение возраста 18+.</p>
+      </div>
+    `;
+  });
+}
+
 const money = n =>
   new Intl.NumberFormat("ru-RU").format(n) + " ₽";
 
@@ -471,7 +505,10 @@ $("#newsletter").onsubmit = e => {
 };
 
 
-$("#checkout-form").onsubmit = async e => {
+const checkoutForm = $("#checkout-form");
+
+if (checkoutForm) {
+  checkoutForm.onsubmit = async e => {
     e.preventDefault();
 
     if (!e.target.reportValidity()) return;
@@ -520,11 +557,11 @@ $("#checkout-form").onsubmit = async e => {
         console.error(error);
         notify("Ошибка оформления");
     }
+  }
 };
 
-
 $("#age-yes").onclick = () => {
-  sessionStorage.setItem("blush-age", "yes");
+  localStorage.setItem("blushAgeConfirmed", "true");
   $("#age-gate").classList.add("hidden");
 };
 

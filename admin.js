@@ -13,7 +13,7 @@ document.querySelector("#login-form").addEventListener("submit", async e => {
     adminAuth = "Basic " + btoa(username + ":" + password);
 
     try {
-        const response = await fetch("http://localhost:8080/api/orders", {
+        const response = await fetch("http://100.105.194.51:8080/api/orders", {
             headers: {
                 Authorization: adminAuth
             }
@@ -47,7 +47,7 @@ const ordersContainer = document.querySelector("#orders");
 
 async function loadOrders() {
     try {
-        const response = await fetch("http://localhost:8080/api/orders", {
+        const response = await fetch("http://100.105.194.51:8080/api/orders", {
             headers: {
             Authorization: adminAuth
         }
@@ -112,7 +112,7 @@ async function loadOrders() {
             select.addEventListener("change", async () => {
     try {
         const response = await fetch(
-            `http://localhost:8080/api/orders/${order.id}/status`,
+            `http://100.105.194.51:8080/api/orders/${order.id}/status`,
             {
                 method: "PATCH",
                 headers: {
@@ -147,8 +147,13 @@ async function loadOrders() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/orders/${order.id}`,
-                { method: "DELETE" }
+                `http://100.105.194.51:8080/api/orders/${order.id}`,
+            {
+                method: "DELETE",
+                headers: {
+                    Authorization: adminAuth
+                }
+            }
             );
 
             if (!response.ok) {
